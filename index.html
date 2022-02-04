@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Supermercado+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -17,19 +24,29 @@
 
 <body>
     <div id="root">
-        <div class="container py-3">
-            <div>
+        <div class="container py-5 bg-primary text-light d-flex flex-column text-center">
+            <header>
+                <h1>Email Generator</h1>
                 <h2>Quante email vuoi Generare?</h2>
-                <input type="number" v-model="emailsItems" @keyup.enter="printEmails">
-            </div>
-            <div v-if="(emails.length === number)">
-                <ul>
+                <input type="number" placeholder="Inserisci qui il numero..." v-model="emailsItems"
+                    @keyup.enter="printEmails">
+            </header>
+            <main v-if="flag">
+                <ul v-if="emails.length === number">
+                    <li>
+                        <h3>
+                            Eccole le {{number}} mail generate
+                        </h3>
+                    </li>
                     <li v-for="email in emails">{{email}}</li>
                 </ul>
-            </div>
-
+                <div v-else id="spinner" class="p-3">
+                    <p>Attendi...</p>
+                    <i class="fa fa-spinner spin-fast fa-spin spin-fast fa-2x">
+                    </i>
+                </div>
+            </main>
         </div>
-
     </div>
     <script src="js/script.js"></script>
 </body>

@@ -1,0 +1,39 @@
+
+.container{
+    border-radius: 10px;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+ul{
+    list-style-type: none;
+    margin-top: 20px;
+    border: 3px solid lightgray;
+}
+
+li{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+#spinner{
+    display: inline-block;
+    margin-top: 20px;
+    border: 3px solid lightgray;
+}
+.fa-spinner::before{
+    color: lightgray;
+}
+
+input[type="number"]{
+    text-align: center;
+    color: white;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: rgba(var(--bs-primary-rgb),var(--bs-bg-opacity))!important;
+}
+input[type="number"]:focus-visible {
+    outline: none;
+}
+
+input::placeholder{
+    color: white;
+}
