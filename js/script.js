@@ -9,7 +9,9 @@ const root = new Vue({
     el: '#root',
     data: {
         emails: [],
-        emailsItems: undefined,
+        emailsItems: '0',
+        number: 0,
+
     },
     methods: {
         getEmails() {
@@ -18,14 +20,16 @@ const root = new Vue({
                 if (!this.emails.includes(newEmail)) {
                     this.emails.push(newEmail);
                 }
-                console.log(this.emails)
+                console.log(this.emails);
             })
         },
         printEmails() {
+            this.number = parseInt(this.emailsItems);
             this.emails = [];
-            for (let i = 0; i < this.emailsItems; i++) {
+            for (let i = 0; i < this.number; i++) {
                 this.getEmails();
             }
-        }
+            this.emailsItems = '';
+        },
     },
 })

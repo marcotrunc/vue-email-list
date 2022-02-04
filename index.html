@@ -17,14 +17,17 @@
 
 <body>
     <div id="root">
-        <div>
-            <h2>Quante email vuoi Generare?</h2>
-            <input type="number" v-model="emailsItems" @keyup.enter="printEmails">
-        </div>
-        <div>
-            <ul>
-                <li v-for="email in emails" v-if="(emails.length === parseInt(emailsItems))">{{email}}</li>
-            </ul>
+        <div class="container py-3">
+            <div>
+                <h2>Quante email vuoi Generare?</h2>
+                <input type="number" v-model="emailsItems" @keyup.enter="printEmails">
+            </div>
+            <div v-if="(emails.length === number)">
+                <ul>
+                    <li v-for="email in emails">{{email}}</li>
+                </ul>
+            </div>
+
         </div>
 
     </div>
