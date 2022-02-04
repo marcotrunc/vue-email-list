@@ -9,11 +9,20 @@ const root = new Vue({
     el: '#root',
     data: {
         emails: [],
+        emailsItem: undefined,
     },
-    mounted() {
-        axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((resp) => {
-            const newEmail = resp.data.response;
-
-        })
+    methods: {
+        getEmails() {
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((resp) => {
+                this.emails.push(resp.data.response);
+                console.log(this.emails)
+            })
+        },
+        printEmails() {
+            for (let i = 0; i < this.emailsItem; i++) {
+                this.getEmails();
+            }
+            console.log(this.emails)
+        }
     },
 })

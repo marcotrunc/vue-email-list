@@ -18,6 +18,10 @@
 <body>
     <div id="root">
         <div>
+            <h2>Quante email vuoi Generare?</h2>
+            <input type="number" v-model="emailsItem" @keyup.enter="printEmails">
+        </div>
+        <div>
             <ul>
                 <li v-for="email in emails">{{email}}</li>
             </ul>
