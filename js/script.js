@@ -9,7 +9,7 @@ const root = new Vue({
     el: '#root',
     data: {
         emails: [],
-        emailsItem: undefined,
+        emailsItems: undefined,
     },
     methods: {
         getEmails() {
@@ -19,10 +19,11 @@ const root = new Vue({
             })
         },
         printEmails() {
-            for (let i = 0; i < this.emailsItem; i++) {
+            for (let i = 0; i < this.emailsItems; i++) {
                 this.getEmails();
             }
             console.log(this.emails)
+
         }
     },
 })
