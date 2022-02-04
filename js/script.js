@@ -14,16 +14,18 @@ const root = new Vue({
     methods: {
         getEmails() {
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((resp) => {
-                this.emails.push(resp.data.response);
+                const newEmail = resp.data.response;
+                if (!this.emails.includes(newEmail)) {
+                    this.emails.push(newEmail);
+                }
                 console.log(this.emails)
             })
         },
         printEmails() {
+            this.emails = [];
             for (let i = 0; i < this.emailsItems; i++) {
                 this.getEmails();
             }
-            console.log(this.emails)
-
         }
     },
 })
